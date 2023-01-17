@@ -1,0 +1,39 @@
+PREWORK CON LINUX
+
+
+1. Install VSCODE
+	snap install code
+2. Install extensions
+	Auto Rename Tag
+	Color Highlight
+	Live Server
+	Path Intellisense
+	Prettier
+	Material Icon Theme
+3. Install NODEJS
+	https://github.com/nvm-sh/nvm#installing-and-updating
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+	nvm install --lts
+4. Install REACT
+	npx create-react-app mi-primer-app
+
+5. Install and configure git with github
+	sudo apt install git
+	
+	Create a github account
+
+	Add you user name to local git
+		git config --global user.name "username"
+		git config --global user.email "tu@email.com"
+	
+	git config --global init.defaultBranch main
+	
+	Create SSH KEY and sync with github:
+			ssh-keygen -t rsa -b 4096 -C "tu@emial.com"
+			eval "$(ssh-agent -s)"
+			ssh-add ~/.ssh/id_rsa
+
+		Then add the puclic key to git
+			In GitHub go to Settings/SSH and GPG Keys/New SSH Key then add the Title and Description.
+		Then you will can add a new repository and conect it to your local git with git remote add origin url...
+	6. 

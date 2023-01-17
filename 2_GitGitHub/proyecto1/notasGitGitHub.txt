@@ -1,0 +1,243 @@
+¿Cómo poner el nombre de usuario y correo en Git?
+git config --global user.email "tu@email.com"
+git config --global user.name "tu nombre"
+
+¿Cómo comenzar a seguir una carpeta con Git?
+git init
+
+¿Cómo ver el estado actual de la rama master?
+git status
+
+¿Cómo trackear o seguir un archivo con git?
+git add <filename>
+
+¿Cómo dejar de trackear o seguir un archivo en git?
+git rm --cached <filename>
+
+¿Cómo borrar definitivamente un archivo que esta en staging sin perder su historial de versiones?
+git rm --force <filename>
+
+(Para más información ver imagen: Ciclo de vida o estados de los archivos)
+
+¿Cómo enviar los cambios de un archivo al repositorio?
+git commit -m "Mensaje de actualización"
+
+¿Cómo ver todas las versiones o historia de un archivo?
+git log <filename>
+
+¿Cómo ver todas los cambios entre la versión actual y la anterior de un archivo?
+git show <filename>
+
+¿Cómo ver las diferencias o cambios entre dos versiones exactas de un archivo?
+git diff tagMenosReciente tagMásReciente
+
+¿Cómo volver a una versión en específico borrando todo el historial posterior a la versión seleccionada?
+git reset <tagCommitVersion> --soft (Borra todo de Git pero el archivo actual en el disco duro queda intacto)
+git reset <tagCommitVersion> --hard (Borra todo de Git y también del disco duro)
+
+¿Cómo revisar una x versión sin borrar de Git la actual?
+git checkout <tagCommitVersion> <fileName>
+
+¿Después de revisar dicha versión, si no quiero agregar cambios ni nada, solo quiero volver a la versión maestra actual, cómo lo hago?
+git checkout master <filename>
+
+Pero si sí quisiera guardar cambios, descartando y borrando la versión master ¿Cómo lo hago?
+Después del checkout se hace add y después commit
+
+---------------------------------------------------------------------------------
+
+	COMANDOS PARA TRABAJO REMOTO CON GIT:
+
+git clone url_del_servidor_remoto: Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.
+
+git push: Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.
+
+git fetch: Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).
+
+git merge: También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.
+
+git pull: Básicamente, git fetch y git merge al mismo tiempo.
+
+	COMANDOS ADICIONALES:
+
+git log --oneline: Te muestra el id commit y el título del commit.
+
+git log --decorate: Te muestra donde se encuentra el head point en el log.
+
+git log --stat: Explica el número de líneas que se cambiaron brevemente.
+
+git log -p: Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.
+
+git shortlog: Indica que commits ha realizado un usuario, mostrando el usuario y el título de sus commits.
+
+git log --graph --oneline --decorate
+
+git log -3: Limitamos el número de commits.
+
+git log --after=“2018-1-2”
+
+git log --after=“today” y
+
+git log --after=“2018-1-2” --before=“today”: Commits para localizar por fechas.
+
+git log --author=“Name Author”: Commits hechos por autor que cumplan exactamente con el nombre.
+
+git log --grep=“INVIE”: Busca los commits que cumplan tal cual está escrito entre las comillas.
+
+git log --grep=“INVIE” –i: Busca los commits que cumplan sin importar mayúsculas o minúsculas.
+
+git log – index.html: Busca los commits en un archivo en específico.
+
+git log -S “Por contenido”: Buscar los commits con el contenido dentro del archivo.
+
+git log > log.txt: guardar los logs en un archivo txt
+
+	COMO FUNCIONAN LAS RAMAS EN GIT
+
+git branch -nombre de la rama-: Con este comando se genera una nueva rama.
+
+git checkout -nombre de la rama-: Con este comando puedes saltar de una rama a otra.
+
+git checkout -b rama: Genera una rama y nos mueve a ella automáticamente, Es decir, es la combinación de git brach y git checkout al mismo tiempo.
+
+git reset id-commit: Nos lleva a cualquier commit no importa la rama, ya que identificamos el id del tag., eliminando el historial de los commit posteriores al tag seleccionado.
+
+git checkout rama-o-id-commit: Nos lleva a cualquier commit sin borrar los commit posteriores al tag seleccionado.
+
+----------------------------------------------------------------------------------
+
+Si queremos conectar el repositorio de GitHub con nuestro repositorio local, que creamos usando el comando git init, debemos ejecutar las siguientes instrucciones:
+
+git remote add origin <URL>
+
+Ahora para subier nuestra rama master:
+
+git push origin master
+
+TOKEN UTILIZADO PARA LAS CLASES DE GIT Y GITHUB
+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
+
+Generar una nueva llave SSH: (Cualquier sistema operativo)
+
+ssh-keygen -t rsa -b 4096 -C "tu@email.com"
+
+Comprobar proceso y agregarlo (Windows)
+
+eval "$(ssh-agent - s)"
+ssh-copy-id "tu@email.com"
+
+¿Cómo ver los repositorios remotos a los que estamos conectados?
+git remote -v
+
+¿Cómo cambiar el repositorio remoto al que estamos conectados para push y fetch?
+git remote set-url origin <url-ssh>
+
+¿Cuál es el procedimiento para actualizar un repositorio remoto?
+pull -> commit -> pull -> push
+
+¿Cómo hacer pull de un servidor remoto?
+git pull origin master
+git pull <repositorio remoto> <la rama a clonar> (estas ramas harán merge)
+
+¿Cómo hacer push a un servidor remoto?
+git push origin master
+git push <repositorio remoto> <la rama local a enviar>
+
+---------------------------------------------------------------------------
+
+git log
+git log --all
+git log --all --graph
+git log --all --graph --decorate --oneline
+
+¿Cómo crear un alias temporal en linux?
+Ejemplo: alias arbolito="git log --all --graph --decorate --oneline"
+
+¿Cómo crear un TAG de una versión en específico de mi proyecto?
+git tag -a v0.1 -m "tu mensaje" <tagCommitVersion>
+
+¿Cómo ver todos los tags que tenemos?
+git tag
+
+¿Cómo mandar los tags a GitHub?
+git push origin --tags
+
+¿Cómo borrar un tag de nombre "dormido" localmente?
+git tag -d dormido
+
+¿Cómo borrar un tag de nombre "dormido" en el repositorio de GitHub?
+Después de borrarlas localmente:
+git push origin :refs/tags/dormido
+
+-----
+git branch
+git branch --all
+git show-branch
+git show-branch --all
+
+¿Cómo abrir la GUI que permite visualizar las ramas?
+gitk
+
+¿Cómo forzar que se actualice el cache de una página por ejemplo github?
+ctrl + shift r
+
+------
+Pull request:
+Es una funcionalidad de github (en gitlab llamada merge request y en bitbucket push request), en la que un colaborador pide que revisen sus cambios antes de hacer merge a una rama, normalmente master.
+
+Al hacer un pull request se genera una conversación que pueden seguir los demás usuarios del repositorio, así como autorizar y rechazar los cambios.
+
+El flujo del pull request es el siguiente
+
+1.Se trabaja en una rama paralela los cambios que se desean (git checkout -b <rama>)
+2.Se hace un commit a la rama (git commit -am '<Comentario>')
+3.Se suben al remoto los cambios (git push origin <rama>)
+4.En GitHub se hace el pull request comparando la rama master con la rama del fix.
+5.Uno, o varios colaboradores revisan que el código sea correcto y dan feedback (en el chat del pull request)
+6.El colaborador hace los cambios que desea en la rama y lo vuelve a subir al remoto (automáticamente jala la historia de los cambios que se hagan en la rama, en remoto)
+7.Se aceptan los cambios en GitHub
+8.Se hace merge a master desde GitHub
+Importante: Cuando se modifica una rama, también se modifica el pull request
+
+------------------------------------------------------------------------
+
+git remote add upstream <url>
+
+git pull upstream master #traemos cambios del repositorio original
+git push oring master    #enviamos cambios a nuestro repositorio forkeado
+
+------------------------------------------------------------------------
+
+PROCEDIMIENTO PARA CONTRIBUIR A UN PROYECTO PUBLICO U OPEN SOURCE EN GITHUB
+
+	1. Hacer FORK desde el GitHub que queremos seguir.
+	2. Clonar ese repositorio desde nuestro GitHub a nuestro repositorio LOCAL (git clone <url>)
+	3. Hacemos los cambios y hacemos commit (git commit -am "tu mensaje")
+	4. Lo subimos a nuestro GitHub (git push origin master)
+	5. Desde nuestro GitHub hacemos [New pull request] -> [Create pull request]
+
+	¿Cómo dar seguimiento al GitHub original para mantener nuestro repo local y remoto actualizado?
+
+	1. git remote add upstream <url GitHub original>
+	2. git pull upstream master
+	3. git push origin master
+
+
+	(El upstream es para traer los cambios del GitHub original al que queremos contribuir.)
+------------------------------------------------------------------------
+
+¿Cómo ignorar archivos en Git?
+
+	1. Simplemente hacemos un archivo de nombre .gitignore
+	2. Si queremos ignorar por ejemplo todas los archivos .jpg entonces escribimos en .gitignore *.jpg
+	3. git add y commit...
+
+En esta página se pueden editar o hacer los archivos README.md de manera muy facil.
+	https://pandao.github.io/editor.md/en.html
+
+------------------------------------------------------------------------
+
+Tutorial de GitHub Pages:
+	https://platzi.com/clases/1557-git-github/19976-tu-sitio-web-publico-con-github-pages/
+
+
