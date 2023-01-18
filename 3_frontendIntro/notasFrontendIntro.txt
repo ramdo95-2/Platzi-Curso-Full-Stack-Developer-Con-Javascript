@@ -13,7 +13,21 @@ Página de referencia para HTML:
 All the HTML tags in periodic table shape:
         https://allthetags.com/
 
+-------------------------------------------------------------
 
+LECTURAS PENDIENTES:
+
+	ARQUITECTURAS CSS:
+
+		Object Oriented CSS
+			https://github.com/stubbornella/oocss/wiki
+		Guía de BEM para CSS | Cohete Falcon 9 de SpaceX
+			https://platzi.com/blog/bem/
+		BEM Methodology Documentation
+			https://en.bem.info/methodology/
+		Atomic Design
+			https://bradfrost.com/blog/post/atomic-web-design/
+			
 -------------------------------------------------------------
 
 CURSO DE FRONTEND DEVELOPER
